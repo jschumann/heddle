@@ -1,1 +1,1 @@
-Lightweight persistance layer for Shuttle.
+Canvas database interface, via DataMapper.
