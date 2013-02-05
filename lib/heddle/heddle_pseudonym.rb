@@ -15,17 +15,17 @@ class Heddle::Pseudonym
   property :perishable_token,               String
   property :login_count,                    Integer
   property :failed_login_count,             Integer
-  property :last_request_at,                Datetime
-  property :last_login_at,                  Datetime
-  property :current_login_at,               Datetime
+  property :last_request_at,                DateTime
+  property :last_login_at,                  DateTime
+  property :current_login_at,               DateTime
   property :last_login_ip,                  String
   property :current_login_ip,               String
   property :reset_password_token,           String
   property :position,                       Integer
-  property :created_at,                     Datetime
-  property :updated_at,                     Datetime
+  property :created_at,                     DateTime
+  property :updated_at,                     DateTime
   property :password_auto_generated,        Boolean
-  property :deleted_at,                     Datetime
+  property :deleted_at,                     DateTime
   property :sis_batch_id,                   Integer
   property :sis_user_id,                    String
   property :sis_ssha,                       String

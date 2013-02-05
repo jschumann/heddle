@@ -9,17 +9,17 @@ class Heddle::User
   property :merge_to,                     Integer
   property :time_zone,                    String
   property :uuid,                         String
-  property :created_at,                   Datetime
-  property :updated_at,                   Datetime
+  property :created_at,                   DateTime
+  property :updated_at,                   DateTime
   property :visibility,                   String
   property :avatar_image_url,             String
   property :avatar_image_source,          String
-  property :avatar_image_updated_at,      Datetime
+  property :avatar_image_updated_at,      DateTime
   property :phone,                        String
   property :school_name,                  String
   property :school_position,              String
   property :short_name,                   String
-  property :deleted_at,                   Datetime
+  property :deleted_at,                   DateTime
   property :show_user_services,           Integer
   property :gender,                       String
   property :page_views_count,             Integer
@@ -28,7 +28,7 @@ class Heddle::User
   property :reminder_time_for_grading,    Integer
   property :storage_quota,                Integer
   property :visible_inbox_types,          String
-  property :last_user_note,               Datetime
+  property :last_user_note,               DateTime
   property :subscribe_to_emails,          Boolean
   property :features_used,                Text
   property :preferences,                  Text
@@ -39,6 +39,6 @@ class Heddle::User
   property :stuck_sis_fields,             Text
   property :public,                       Boolean
   property :bio,                          Text
-  property :birthdate,                    Datetime
+  property :birthdate,                    DateTime
 end
 
