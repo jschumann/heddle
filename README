@@ -2,3 +2,16 @@ This is a simple Ruby library for interacting directly with the database of Canv
 
 Not ready for prime time. Patches welcome.
 
+A MySQL connection:
+DataMapper.setup(:heddle, Heddle::DatabaseConnectionString)
+
+gem 'data_mapper'
+gem 'dm-core'
+gem 'dm-sqlite-adapter'
+gem 'dm-timestamps'
+gem 'dm-validations'
+gem 'dm-aggregates'
+gem 'dm-migrations'
+gem 'dm-mysql-adapter'
+gem 'activerecord-jdbc-adapter'
+gem 'jdbc-mysql'
