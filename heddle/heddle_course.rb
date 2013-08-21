@@ -1,62 +1,50 @@
-| courses | CREATE TABLE `courses` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `account_id` bigint(20) DEFAULT NULL,
-  `group_weighting_scheme` varchar(255) DEFAULT NULL,
-  `old_account_id` bigint(20) DEFAULT NULL,
-  `workflow_state` varchar(255) DEFAULT NULL,
-  `uuid` varchar(255) DEFAULT NULL,
-  `start_at` datetime DEFAULT NULL,
-  `conclude_at` datetime DEFAULT NULL,
-  `grading_standard_id` bigint(20) DEFAULT NULL,
-  `is_public` tinyint(1) DEFAULT NULL,
-  `allow_student_wiki_edits` tinyint(1) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `show_public_context_messages` tinyint(1) DEFAULT NULL,
-  `syllabus_body` mediumtext,
-  `allow_student_forum_attachments` tinyint(1) DEFAULT '0',
-  `default_wiki_editing_roles` varchar(255) DEFAULT NULL,
-  `wiki_id` bigint(20) DEFAULT NULL,
-  `allow_student_organized_groups` tinyint(1) DEFAULT '1',
-  `course_code` varchar(255) DEFAULT NULL,
-  `default_view` varchar(255) DEFAULT 'feed',
-  `abstract_course_id` bigint(20) DEFAULT NULL,
-  `root_account_id` bigint(20) DEFAULT NULL,
-  `enrollment_term_id` bigint(20) DEFAULT NULL,
-  `sis_source_id` varchar(255) DEFAULT NULL,
-  `sis_batch_id` bigint(20) DEFAULT NULL,
-  `show_all_discussion_entries` tinyint(1) DEFAULT NULL,
-  `open_enrollment` tinyint(1) DEFAULT NULL,
-  `storage_quota` bigint(20) DEFAULT NULL,
-  `tab_configuration` text,
-  `allow_wiki_comments` tinyint(1) DEFAULT NULL,
-  `turnitin_comments` text,
-  `self_enrollment` tinyint(1) DEFAULT NULL,
-  `license` varchar(255) DEFAULT NULL,
-  `indexed` tinyint(1) DEFAULT NULL,
-  `restrict_enrollments_to_course_dates` tinyint(1) DEFAULT NULL,
-  `template_course_id` bigint(20) DEFAULT NULL,
-  `locale` varchar(255) DEFAULT NULL,
-  `settings` text,
-  `replacement_course_id` bigint(20) DEFAULT NULL,
-  `stuck_sis_fields` text,
-  `public_description` text,
-  `self_enrollment_code` varchar(255) DEFAULT NULL,
-  `self_enrollment_limit` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `index_courses_on_self_enrollment_code` (`self_enrollment_code`),
-  UNIQUE KEY `index_courses_on_sis_source_id_and_root_account_id` (`sis_source_id`,`root_account_id`),
-  KEY `index_courses_on_account_id` (`account_id`),
-  KEY `index_courses_on_enrollment_term_id` (`enrollment_term_id`),
-  KEY `index_courses_on_root_account_id` (`root_account_id`),
-  KEY `index_courses_on_template_course_id` (`template_course_id`),
-  KEY `index_courses_on_uuid` (`uuid`),
-  KEY `courses_wiki_id_fk` (`wiki_id`),
-  CONSTRAINT `courses_wiki_id_fk` FOREIGN KEY (`wiki_id`) REFERENCES `wikis` (`id`),
-  CONSTRAINT `courses_account_id_fk` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`),
-  CONSTRAINT `courses_enrollment_term_id_fk` FOREIGN KEY (`enrollment_term_id`) REFERENCES `enrollment_terms` (`id`),
-  CONSTRAINT `courses_root_account_id_fk` FOREIGN KEY (`root_account_id`) REFERENCES `accounts` (`id`),
-  CONSTRAINT `courses_template_course_id_fk` FOREIGN KEY (`template_course_id`) REFERENCES `courses` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1473 DEFAULT CHARSET=latin1 |
+class Heddle::ConTextModule
+  include DataMapper::Resource
+  storage_names[:heddle] = 'courses'
 
+  property :id,                                     Serial
+  property :name,                                   String
+  property :account_id,                             Integer
+  property :group_weighting_scheme,                 String
+  property :old_account_id,                         Integer
+  property :workflow_state,                         String
+  property :uuid,                                   String
+  property :start_at,                               DateTime
+  property :conclude_at,                            DateTime
+  property :grading_standard_id,                    Integer
+  property :is_public,                              Integer
+  property :allow_student_wiki_edits,               Integer
+  property :created_at,                             DateTime
+  property :updated_at,                             DateTime
+  property :show_public_conText_messages,           Integer
+  property :syllabus_body,                          Text
+  property :allow_student_forum_attachments,        Integer
+  property :default_wiki_editing_roles,             String
+  property :wiki_id,                                Integer
+  property :allow_student_organized_groups,         Integer
+  property :course_code,                            String
+  property :default_view,                           String
+  property :abstract_course_id,                     Integer
+  property :root_account_id,                        Integer
+  property :enrollment_term_id,                     Integer
+  property :sis_source_id,                          String
+  property :sis_batch_id,                           Integer
+  property :show_all_discussion_entries,            Integer
+  property :open_enrollment,                        Integer
+  property :storage_quota,                          Integer
+  property :tab_configuration,                      Text
+  property :allow_wiki_comments,                    Integer
+  property :turnitin_comments,                      Text
+  property :self_enrollment,                        Integer
+  property :license,                                String
+  property :indexed,                                Integer
+  property :restrict_enrollments_to_course_dates,   Integer
+  property :template_course_id,                     Integer
+  property :locale,                                 String
+  property :settings,                               Text
+  property :replacement_course_id,                  Integer
+  property :stuck_sis_fields,                       Text
+  property :public_description,                     Text
+  property :self_enrollment_code,                   String
+  property :self_enrollment_limit,                  Integer
+end
