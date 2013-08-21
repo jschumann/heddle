@@ -1,4 +1,4 @@
-class Heddle::ConTextModule
+class Heddle::Course
   include DataMapper::Resource
   storage_names[:heddle] = 'courses'
 
