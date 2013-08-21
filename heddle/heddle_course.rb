@@ -16,7 +16,7 @@ class Heddle::Course
   property :allow_student_wiki_edits,               Integer
   property :created_at,                             DateTime
   property :updated_at,                             DateTime
-  property :show_public_conText_messages,           Integer
+  property :show_public_context_messages,           Integer
   property :syllabus_body,                          Text
   property :allow_student_forum_attachments,        Integer
   property :default_wiki_editing_roles,             String
